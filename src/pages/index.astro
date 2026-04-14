@@ -1,11 +1,1566 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const content = {
+  en: {
+    nav: {
+      about: 'About',
+      experience: 'Experience',
+      skills: 'Skills',
+      projects: 'Projects',
+      education: 'Education',
+      contact: 'Contact',
+    },
+    hero: {
+      badge: 'Open to opportunities',
+      title: 'Yesbol Zholdasbay',
+      role: 'System Administrator • DevOps Engineer • Fullstack Developer • IT Support Specialist',
+      description:
+        'I work across infrastructure, support, automation, and development. My experience includes Linux and Windows administration, monitoring, CI/CD, containers, backend/frontend development, and production support.',
+      primary: 'Download CV',
+      secondary: 'Contact Me',
+      github: 'GitHub',
+      photoHint: 'Your photo',
+      quickTitle: 'Quick Overview',
+      quickItems: [
+        '4+ years of IT experience',
+        'Almaty, Kazakhstan',
+        'Linux / DevOps / Support / Development',
+        'Open to different IT roles',
+      ],
+    },
+    about: {
+      title: 'About Me',
+      text1:
+        'I am an IT specialist with practical experience in system administration, DevOps, technical support, cloud operations, and web development.',
+      text2:
+        'I work with Linux and Windows servers, monitoring systems, automation, Docker-based deployments, databases, networking, and infrastructure support.',
+      text3:
+        'I also have hands-on experience in backend and frontend development, API integrations, deployment processes, incident handling, troubleshooting, and support of business-critical systems.',
+      text4:
+        'My goal is to build reliable, scalable, and useful solutions, while also being strong in support, operations, and continuous improvement.',
+    },
+    experience: {
+      title: 'Experience',
+      items: [
+        {
+          company: 'DataRocks',
+          role: 'Fullstack Developer',
+          period: 'Dec 2025 — Present',
+          text:
+            'LAMP stack development, REST API, authorization and roles, validation, SQL, schema design, integrations, Apache/Nginx, SSL/TLS, Git, deployment, logs, and incident diagnostics.',
+        },
+        {
+          company: 'Freedom Finance Life',
+          role: 'Linux System Administrator',
+          period: 'Jun 2025 — Present',
+          text:
+            'Linux administration, networking, users and groups, SSH and firewall setup, backups, monitoring, Bash scripting, Ansible, Apache/Nginx, MySQL/PostgreSQL/Oracle, Docker, Kubernetes, KVM, VMware, Proxmox, and cloud-related work.',
+        },
+        {
+          company: 'Burger King',
+          role: 'IT Integration Engineer',
+          period: 'Mar 2025 — Present',
+          text:
+            'Monitoring servers, network and POS equipment, Windows/Linux administration, incident response, remote support, database support, Wi-Fi/VPN checks, Active Directory, Hikvision, Zabbix, Grafana, MICROS, payment terminals, and delivery service integrations.',
+        },
+        {
+          company: 'Med365',
+          role: 'Second Line Linux Technical Support Specialist',
+          period: 'Jan 2025 — Feb 2026',
+          text:
+            'Linux monitoring and administration, incident resolution, package management, access and security, automation with scripts and Ansible, log analysis, and Docker deployment of Spring Java / Vue.js / PostgreSQL / Nginx based solutions.',
+        },
+        {
+          company: 'UIB',
+          role: 'DevOps Engineer',
+          period: 'Dec 2023 — May 2025',
+          text:
+            'CI/CD support, Docker and Kubernetes, monitoring and logging, backups, security, Linux server environments, Bash/Python automation, AWS basics, documentation, and team support.',
+        },
+        {
+          company: 'Magnum Cash&Carry',
+          role: 'Second Line Technical Support Specialist',
+          period: 'Jun 2022 — Oct 2023',
+          text:
+            'Regional IT support, user support, troubleshooting, infrastructure and equipment support, and second-line issue resolution.',
+        },
+        {
+          company: 'iShowcase',
+          role: 'Cloud Engineer',
+          period: 'Mar 2022 — Oct 2023',
+          text:
+            'cPanel/WHM administration, web/mail/DNS services, performance troubleshooting, backups, SSL automation, AWS EC2, S3, Route 53, CloudWatch, IAM, firewall setup, log audits, bash/Python automation, Git, CloudLinux/AlmaLinux, and cron tasks.',
+        },
+      ],
+    },
+    skills: {
+      title: 'Core Skills',
+      items: [
+        'Linux',
+        'Windows Server',
+        'Python',
+        'Bash',
+        'Docker',
+        'Kubernetes',
+        'Ansible',
+        'Zabbix',
+        'Prometheus',
+        'Grafana',
+        'PostgreSQL',
+        'MySQL',
+        'Oracle',
+        'Nginx',
+        'Apache',
+        'Django',
+        'FastAPI',
+        'React',
+        'Git',
+        'GitHub',
+        'AWS',
+        'Azure',
+        'Active Directory',
+        'DNS',
+        'TCP/IP',
+        'SSH',
+        'FTP',
+        'SSL/TLS',
+        'REST API',
+        'VMware ESXi',
+        'Proxmox',
+      ],
+    },
+    projects: {
+      title: 'Selected Projects',
+      items: [
+        {
+          title: 'Medical Portal',
+          desc:
+            'A medical web portal for appointments, records, consultations, and role-based workflows.',
+        },
+        {
+          title: 'News Website',
+          desc:
+            'A web platform for creating, editing, and managing news content with an удобный workflow.',
+        },
+        {
+          title: 'Financial Telegram Bot',
+          desc:
+            'A Telegram bot connected to PostgreSQL for storing and visualizing financial data.',
+        },
+      ],
+    },
+    education: {
+      title: 'Education',
+      university:
+        'Almaty University of Energy and Communications, Computer and Software Engineering',
+      universityPeriod: 'Higher Education',
+      college:
+        'Almaty Economic College, Information Systems, Technician-Programmer',
+      collegePeriod: 'Secondary Special Education',
+      languagesTitle: 'Languages',
+      languages: [
+        'Kazakh — Native',
+        'Russian — C1',
+        'English — B1',
+      ],
+    },
+    contact: {
+      title: 'Contact',
+      text: 'I am open to opportunities in system administration, DevOps, technical support, cloud operations, and development.',
+      emailLabel: 'Email',
+      phoneLabel: 'Phone',
+      cityLabel: 'Location',
+      cityValue: 'Almaty, Kazakhstan',
+    },
+    feedback: {
+  openButton: 'Leave a callback request',
+  badge: 'Contact Request',
+  title: 'Leave a callback request',
+  text: 'Leave your phone number or email and a short comment. I will get back to you.',
+  contactLabel: 'Phone or Email',
+  contactPlaceholder: 'For example: +7 777 270 22 74 or your@email.com',
+  messageLabel: 'Comment',
+  messagePlaceholder: 'Briefly describe your request',
+  submit: 'Send request'
+},
+    footer: 'Built with Astro',
+  },
+
+  ru: {
+    nav: {
+      about: 'Обо мне',
+      experience: 'Опыт',
+      skills: 'Навыки',
+      projects: 'Проекты',
+      education: 'Образование',
+      contact: 'Контакты',
+    },
+    hero: {
+      badge: 'Открыт к предложениям',
+      title: 'Есбол Жолдасбай',
+      role: 'Системный администратор • DevOps инженер • Fullstack разработчик • Специалист техподдержки',
+      description:
+        'Я работаю на стыке инфраструктуры, поддержки, автоматизации и разработки. Мой опыт включает Linux и Windows администрирование, мониторинг, CI/CD, контейнеры, backend/frontend разработку и поддержку production-среды.',
+      primary: 'Скачать резюме',
+      secondary: 'Связаться',
+      github: 'GitHub',
+      photoHint: 'Ваше фото',
+      quickTitle: 'Кратко обо мне',
+      quickItems: [
+        'Более 4 лет опыта в IT',
+        'Алматы, Казахстан',
+        'Linux / DevOps / Support / Development',
+        'Открыт к разным IT-ролям',
+      ],
+    },
+    about: {
+      title: 'Обо мне',
+      text1:
+        'Я IT-специалист с практическим опытом в системном администрировании, DevOps, технической поддержке, облачной инфраструктуре и веб-разработке.',
+      text2:
+        'Я работаю с Linux и Windows серверами, системами мониторинга, автоматизацией, деплоем в Docker, базами данных, сетями и поддержкой инфраструктуры.',
+      text3:
+        'Также у меня есть практический опыт в backend и frontend разработке, интеграции API, деплое, обработке инцидентов, диагностике проблем и сопровождении бизнес-критичных систем.',
+      text4:
+        'Моя цель — строить надежные, масштабируемые и полезные решения, оставаясь сильным как в поддержке, так и в эксплуатации и развитии систем.',
+    },
+    experience: {
+      title: 'Опыт',
+      items: [
+        {
+          company: 'DataRocks',
+          role: 'Fullstack-разработчик',
+          period: 'Дек 2025 — настоящее время',
+          text:
+            'Разработка на LAMP-стеке, REST API, авторизация и роли, валидация, SQL, проектирование схем, интеграции, Apache/Nginx, SSL/TLS, Git, деплой, работа с логами и диагностика инцидентов.',
+        },
+        {
+          company: 'Freedom Finance Life',
+          role: 'Системный администратор Linux',
+          period: 'Июн 2025 — настоящее время',
+          text:
+            'Администрирование Linux, сеть, пользователи и группы, SSH и firewall, резервное копирование, мониторинг, Bash-скрипты, Ansible, Apache/Nginx, MySQL/PostgreSQL/Oracle, Docker, Kubernetes, KVM, VMware, Proxmox и облачные задачи.',
+        },
+        {
+          company: 'Burger King',
+          role: 'IT Integration Engineer',
+          period: 'Мар 2025 — настоящее время',
+          text:
+            'Мониторинг серверов, сетевого и кассового оборудования, Windows/Linux администрирование, реакция на инциденты, удаленная поддержка, сопровождение БД, проверка Wi-Fi/VPN, Active Directory, Hikvision, Zabbix, Grafana, MICROS, платежные терминалы и интеграции сервисов доставки.',
+        },
+        {
+          company: 'Med365',
+          role: 'Специалист второй линии технической поддержки Linux',
+          period: 'Янв 2025 — Фев 2026',
+          text:
+            'Мониторинг и администрирование Linux, устранение сбоев, работа с пакетами, доступами и безопасностью, автоматизация скриптами и Ansible, анализ логов и деплой решений на Spring Java / Vue.js / PostgreSQL / Nginx в Docker.',
+        },
+        {
+          company: 'UIB',
+          role: 'DevOps-инженер',
+          period: 'Дек 2023 — Май 2025',
+          text:
+            'Поддержка CI/CD, Docker и Kubernetes, мониторинг и логирование, резервное копирование, безопасность, Linux-среды, автоматизация на Bash/Python, основы AWS, документация и командная поддержка.',
+        },
+        {
+          company: 'Magnum Cash&Carry',
+          role: 'Специалист технической поддержки 2 линии',
+          period: 'Июн 2022 — Окт 2023',
+          text:
+            'Региональная IT-поддержка, помощь пользователям, устранение неисправностей, сопровождение инфраструктуры и оборудования, решение инцидентов второй линии.',
+        },
+        {
+          company: 'iShowcase',
+          role: 'Cloud Engineer',
+          period: 'Мар 2022 — Окт 2023',
+          text:
+            'Администрирование cPanel/WHM, веб/почта/DNS, устранение проблем производительности, бэкапы, автоматизация SSL, AWS EC2, S3, Route 53, CloudWatch, IAM, firewall, аудит логов, автоматизация на bash/Python, Git, CloudLinux/AlmaLinux и cron-задачи.',
+        },
+      ],
+    },
+    skills: {
+      title: 'Ключевые навыки',
+      items: [
+        'Linux',
+        'Windows Server',
+        'Python',
+        'Bash',
+        'Docker',
+        'Kubernetes',
+        'Ansible',
+        'Zabbix',
+        'Prometheus',
+        'Grafana',
+        'PostgreSQL',
+        'MySQL',
+        'Oracle',
+        'Nginx',
+        'Apache',
+        'Django',
+        'FastAPI',
+        'React',
+        'Git',
+        'GitHub',
+        'AWS',
+        'Azure',
+        'Active Directory',
+        'DNS',
+        'TCP/IP',
+        'SSH',
+        'FTP',
+        'SSL/TLS',
+        'REST API',
+        'VMware ESXi',
+        'Proxmox',
+      ],
+    },
+    projects: {
+      title: 'Избранные проекты',
+      items: [
+        {
+          title: 'Медицинский портал',
+          desc:
+            'Медицинский веб-портал для записи, медицинских данных, консультаций и ролевых процессов.',
+        },
+        {
+          title: 'Новостной сайт',
+          desc:
+            'Веб-платформа для создания, редактирования и управления новостным контентом.',
+        },
+        {
+          title: 'Финансовый Telegram-бот',
+          desc:
+            'Telegram-бот с PostgreSQL для хранения и визуализации финансовых данных.',
+        },
+      ],
+    },
+    education: {
+      title: 'Образование',
+      university:
+        'Алматинский университет энергетики и связи, вычислительная техника и программное обеспечение',
+      universityPeriod: 'Высшее образование',
+      college:
+        'Алматинский Экономический Колледж, информационные системы, техник-программист',
+      collegePeriod: 'Среднее специальное',
+      languagesTitle: 'Языки',
+      languages: [
+        'Казахский — родной',
+        'Русский — C1',
+        'Английский — B1',
+      ],
+    },
+    contact: {
+      title: 'Контакты',
+      text: 'Я открыт к предложениям по системному администрированию, DevOps, технической поддержке, облачной инфраструктуре и разработке.',
+      emailLabel: 'Email',
+      phoneLabel: 'Телефон',
+      cityLabel: 'Локация',
+      cityValue: 'Алматы, Казахстан',
+    },
+    feedback: {
+  openButton: 'Оставить заявку на обратную связь',
+  badge: 'Обратная связь',
+  title: 'Оставить заявку на обратную связь',
+  text: 'Укажите телефон или email для связи и коротко напишите, по какому вопросу вы хотите связаться.',
+  contactLabel: 'Телефон или Email',
+  contactPlaceholder: 'Например: +7 777 270 22 74 или your@email.com',
+  messageLabel: 'Комментарий',
+  messagePlaceholder: 'Коротко опишите ваш вопрос',
+  submit: 'Отправить заявку'
+},
+    footer: 'Сделано на Astro',
+  },
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Yesbol Zholdasbay | Portfolio">
+  <main class="page" data-lang="ru">
+    <header class="topbar">
+      <a class="brand" href="#top">YZ</a>
+
+      <nav class="nav">
+        <a href="#about" data-i18n="nav.about">Обо мне</a>
+        <a href="#experience" data-i18n="nav.experience">Опыт</a>
+        <a href="#education" data-i18n="nav.education">Образование</a>
+        <a href="#skills" data-i18n="nav.skills">Навыки</a>
+        <a href="#projects" data-i18n="nav.projects">Проекты</a>
+        <a href="#contact" data-i18n="nav.contact">Контакты</a>
+      </nav>
+
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang-btn="ru">RU</button>
+        <button class="lang-btn" data-lang-btn="en">EN</button>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <div class="badge" data-i18n="hero.badge">Открыт к предложениям</div>
+        <h1 data-i18n="hero.title">Есбол Жолдасбай</h1>
+        <p class="role" data-i18n="hero.role">
+          Системный администратор • DevOps инженер • Fullstack разработчик • Техподдержка
+        </p>
+        <p class="hero-text" data-i18n="hero.description">
+          Я занимаюсь построением, поддержкой и улучшением IT-систем: Linux и Windows серверы, мониторинг, автоматизация, контейнеры, деплой, веб-приложения и процессы технической поддержки.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/cv/Yesbol-Zholdasbay-CV.pdf" download data-i18n="hero.primary">Скачать резюме</a>
+          <a class="btn btn-secondary" href="#contact" data-i18n="hero.secondary">Связаться</a>
+          <a class="btn btn-ghost" href="https://github.com/xodnd99" target="_blank" rel="noreferrer" data-i18n="hero.github">GitHub</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="photo-card">
+          <div class="photo-circle">
+            <img src="/images/profile.jpg" alt="Yesbol Zholdasbay" />
+            <span class="photo-placeholder" data-i18n="hero.photoHint">Ваше фото</span>
+          </div>
+
+          <div class="quick-box">
+            <h3 data-i18n="hero.quickTitle">Кратко обо мне</h3>
+            <ul>
+              <li data-i18n-list="hero.quickItems.0">Более 4 лет в IT</li>
+              <li data-i18n-list="hero.quickItems.1">Алматы, Казахстан</li>
+              <li data-i18n-list="hero.quickItems.2">Linux / DevOps / Support / Development</li>
+              <li data-i18n-list="hero.quickItems.3">Двуязычное портфолио RU / EN</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head">
+        <span class="section-line"></span>
+        <h2 data-i18n="about.title">Обо мне</h2>
+      </div>
+      <div class="card text-card">
+        <p data-i18n="about.text1">
+          Я IT-специалист с практическим опытом в системном администрировании, DevOps, технической поддержке и веб-разработке.
+        </p>
+        <p data-i18n="about.text2">
+          Мой опыт включает администрирование Linux-серверов, мониторинг, автоматизацию, деплой в Docker, поддержку Windows-инфраструктуры, а также backend/frontend-разработку для бизнес-систем.
+        </p>
+        <p data-i18n="about.text3">
+          Мне нравится практическая работа: решать инциденты, повышать стабильность систем, автоматизировать рутину и строить полезные и надежные решения.
+        </p>
+      </div>
+    </section>
+    <section class="section" id="education">
+  <div class="section-head">
+    <span class="section-line"></span>
+    <h2 data-i18n="education.title">Образование</h2>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-card">
+      <div class="timeline-top">
+        <h3 data-i18n="education.university">Алматинский университет энергетики и связи, вычислительная техника и программное обеспечение</h3>
+        <span data-i18n="education.universityPeriod">Высшее образование</span>
+      </div>
+    </article>
+
+    <article class="timeline-card">
+      <div class="timeline-top">
+        <h3 data-i18n="education.college">Алматинский Экономический Колледж, информационные системы, техник-программист</h3>
+        <span data-i18n="education.collegePeriod">Среднее специальное</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="section-head">
+    <span class="section-line"></span>
+    <h2 data-i18n="experience.title">Опыт</h2>
+  </div>
+
+  <div class="timeline">
+    {content.ru.experience.items.map((item, index) => (
+      <article class="timeline-card">
+        <div class="timeline-top">
+          <h3 data-i18n-list={`experience.items.${index}.company`}>{item.company}</h3>
+          <span data-i18n-list={`experience.items.${index}.period`}>{item.period}</span>
+        </div>
+        <p class="timeline-role" data-i18n-list={`experience.items.${index}.role`}>
+          {item.role}
+        </p>
+        <p data-i18n-list={`experience.items.${index}.text`}>
+          {item.text}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>
+
+    <section class="section" id="skills">
+      <div class="section-head">
+        <span class="section-line"></span>
+        <h2 data-i18n="skills.title">Ключевые навыки</h2>
+      </div>
+
+      <div class="card">
+        <div class="tags">
+          {content.ru.skills.items.map((item) => (
+            <span class="tag">{item}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head">
+        <span class="section-line"></span>
+        <h2 data-i18n="projects.title">Избранные проекты</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-number">01</div>
+          <h3 data-i18n-list="projects.items.0.title">Медицинский портал</h3>
+          <p data-i18n-list="projects.items.0.desc">
+            Веб-проект для записи, медицинских данных и управляемых через админ-панель процессов.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <h3 data-i18n-list="projects.items.1.title">Новостной сайт</h3>
+          <p data-i18n-list="projects.items.1.desc">
+            Веб-проект в формате CMS для публикации и управления новостным контентом.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <h3 data-i18n-list="projects.items.2.title">Финансовый Telegram-бот</h3>
+          <p data-i18n-list="projects.items.2.desc">
+            Бот для ввода, хранения и визуализации финансовых данных компаний в виде графиков.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head">
+        <span class="section-line"></span>
+        <h2 data-i18n="contact.title">Контакты</h2>
+      </div>
+
+      <div class="feedback-modal" id="feedbackModal" aria-hidden="true">
+  <div class="feedback-backdrop" id="feedbackBackdrop"></div>
+
+  <div class="feedback-dialog" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+    <button class="feedback-close" id="closeFeedbackModal" aria-label="Close modal" type="button">
+      ×
+    </button>
+
+    <div class="feedback-header">
+      <div class="feedback-badge" data-i18n="feedback.badge">Обратная связь</div>
+      <h3 id="feedbackTitle" data-i18n="feedback.title">Оставить заявку на обратную связь</h3>
+      <p data-i18n="feedback.text">
+        Укажите телефон или email для связи и коротко напишите, по какому вопросу вы хотите связаться.
+      </p>
+    </div>
+
+    <form class="feedback-form" action="https://formspree.io/f/mzbnnrnk" method="POST">
+      <label class="feedback-field">
+        <span data-i18n="feedback.contactLabel">Телефон или Email</span>
+        <input
+          type="text"
+          name="contact"
+          data-i18n-placeholder="feedback.contactPlaceholder"
+          placeholder="Например: +7 777 270 22 74 или your@email.com"
+          required
+        />
+      </label>
+
+      <label class="feedback-field">
+        <span data-i18n="feedback.messageLabel">Комментарий</span>
+        <textarea
+          name="message"
+          rows="5"
+          data-i18n-placeholder="feedback.messagePlaceholder"
+          placeholder="Коротко опишите ваш вопрос"
+          required
+        ></textarea>
+      </label>
+
+      <button class="btn btn-primary feedback-submit" type="submit" data-i18n="feedback.submit">
+        Отправить заявку
+      </button>
+    </form>
+  </div>
+</div>
+      <div class="contact-card">
+        <p data-i18n="contact.text">
+          Буду рад связи, если у вас есть предложения по системному администрированию, DevOps, разработке или технической поддержке.
+        </p>
+
+        <div class="contact-grid">
+  <a class="contact-item" href="mailto:esbolyegizekov@gmail.com">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16v12H4z"></path>
+        <path d="m4 7 8 6 8-6"></path>
+      </svg>
+    </span>
+    <div>
+      <span class="contact-label" data-i18n="contact.emailLabel">Email</span>
+      <span class="contact-value">esbolyegizekov@gmail.com</span>
+    </div>
+  </a>
+
+  <a class="contact-item" href="tel:+77772702274">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </span>
+    <div>
+      <span class="contact-label" data-i18n="contact.phoneLabel">Телефон</span>
+      <span class="contact-value">+7 777 270 22 74</span>
+    </div>
+  </a>
+
+  <a class="contact-item" href="https://github.com/xodnd99" target="_blank" rel="noreferrer">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.74-1.33-1.74-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.22 1.84 1.22 1.08 1.82 2.82 1.29 3.5.98.11-.77.42-1.29.77-1.59-2.67-.3-5.48-1.31-5.48-5.86 0-1.3.47-2.36 1.23-3.2-.12-.3-.53-1.53.12-3.19 0 0 1.01-.32 3.3 1.22a11.6 11.6 0 0 1 6 0c2.28-1.54 3.29-1.22 3.29-1.22.66 1.66.25 2.89.13 3.19.77.84 1.23 1.9 1.23 3.2 0 4.56-2.82 5.56-5.5 5.85.43.37.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 12 .5z"/>
+      </svg>
+    </span>
+    <div>
+      <span class="contact-label">GitHub</span>
+      <span class="contact-value">github.com/xodnd99</span>
+    </div>
+  </a>
+
+  <a class="contact-item" href="https://www.linkedin.com/in/esbol-zholdasbai-008abb221/" target="_blank" rel="noreferrer">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3 9h4v12H3Zm7 0h3.83v1.64h.05c.53-1 1.83-2.05 3.77-2.05C21 8.59 21 11.1 21 14.36V21h-4v-5.9c0-1.41-.03-3.22-1.96-3.22-1.96 0-2.26 1.53-2.26 3.12V21h-4Z"/>
+      </svg>
+    </span>
+    <div>
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">linkedin.com/in/esbol-zholdasbai-008abb221</span>
+    </div>
+  </a>
+
+  <a class="contact-item" href="https://t.me/Xodnd99" target="_blank" rel="noreferrer">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21.94 4.67a1.5 1.5 0 0 0-1.64-.24L3.4 11.3a1.5 1.5 0 0 0 .12 2.82l4.14 1.38 1.38 4.14a1.5 1.5 0 0 0 2.82.12l6.87-16.9a1.5 1.5 0 0 0-.79-1.99ZM10.53 14.2l-.6 3.06-1.01-3.02 7.53-6.28-5.92 6.24Z"/>
+      </svg>
+    </span>
+    <div>
+      <span class="contact-label">Telegram</span>
+      <span class="contact-value">@Xodnd99</span>
+    </div>
+  </a>
+
+  <a class="contact-item" href="https://wa.me/77772702274" target="_blank" rel="noreferrer">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.82 11.82 0 0 0 5.76 1.47h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.44Zm-8.46 18.3h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.64-.24-.37a9.87 9.87 0 0 1-1.52-5.25c0-5.46 4.45-9.9 9.91-9.9 2.65 0 5.14 1.03 7 2.9a9.83 9.83 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.42c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15s-.77.98-.95 1.18c-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.08 4.49.71.3 1.27.48 1.7.61.71.22 1.36.19 1.87.12.57-.08 1.78-.73 2.03-1.44.25-.7.25-1.3.17-1.44-.07-.13-.27-.2-.57-.35Z"/>
+      </svg>
+    </span>
+    <div>
+      <span class="contact-label">WhatsApp</span>
+      <span class="contact-value">Write me directly</span>
+    </div>
+  </a>
+</div>
+
+<div class="request-cta">
+  <button class="btn btn-primary" id="openFeedbackModal" type="button" data-i18n="feedback.openButton">
+  Оставить заявку на обратную связь
+</button>
+</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Yesbol Zholdasbay • <span data-i18n="footer">Сделано на Astro</span></p>
+    </footer>
+  </main>
 </Layout>
+
+<script define:vars={{ content }}>
+  const root = document.querySelector('.page');
+  const buttons = document.querySelectorAll('[data-lang-btn]');
+
+  function getValue(obj, path) {
+    return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+  }
+
+  function setLanguage(lang) {
+    root.setAttribute('data-lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const value = getValue(content[lang], key);
+      if (typeof value === 'string') {
+        el.textContent = value;
+      }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+  const key = el.getAttribute('data-i18n-placeholder');
+  const value = getValue(content[lang], key);
+  if (typeof value === 'string') {
+    el.setAttribute('placeholder', value);
+  }
+});
+
+    document.querySelectorAll('[data-i18n-list]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-list');
+      const value = getValue(content[lang], key);
+      if (typeof value === 'string') {
+        el.textContent = value;
+      }
+    });
+
+    buttons.forEach((btn) => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+
+    localStorage.setItem('portfolio-lang', lang);
+  }
+
+  const saved = localStorage.getItem('portfolio-lang') || 'ru';
+  setLanguage(saved);
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.getAttribute('data-lang-btn'));
+    });
+  });
+
+    const feedbackModal = document.getElementById('feedbackModal');
+  const openFeedbackModal = document.getElementById('openFeedbackModal');
+  const closeFeedbackModal = document.getElementById('closeFeedbackModal');
+  const feedbackBackdrop = document.getElementById('feedbackBackdrop');
+
+  function openModal() {
+    feedbackModal?.classList.add('is-open');
+    feedbackModal?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    feedbackModal?.classList.remove('is-open');
+    feedbackModal?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  openFeedbackModal?.addEventListener('click', openModal);
+  closeFeedbackModal?.addEventListener('click', closeModal);
+  feedbackBackdrop?.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
+
+<style>
+.request-cta {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.feedback-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.feedback-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.feedback-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.76);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.feedback-modal.is-open .feedback-backdrop {
+  opacity: 1;
+}
+
+.feedback-dialog {
+  position: relative;
+  z-index: 2;
+  width: min(94vw, 720px);
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 34px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(14, 23, 42, 0.97), rgba(9, 15, 28, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transform: translateY(26px) scale(0.96);
+  opacity: 0;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+.feedback-modal.is-open .feedback-dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.feedback-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  color: #e2e8f0;
+  background: rgba(30, 41, 59, 0.9);
+  transition: 0.2s ease;
+}
+
+.feedback-close:hover {
+  background: rgba(51, 65, 85, 1);
+}
+
+.feedback-header {
+  margin-bottom: 20px;
+  padding-right: 42px;
+}
+
+.feedback-badge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.14);
+  border: 1px solid rgba(96, 165, 250, 0.26);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.feedback-header h3 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.feedback-header p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.feedback-form {
+  display: grid;
+  gap: 16px;
+}
+
+.feedback-field {
+  display: grid;
+  gap: 8px;
+}
+
+.feedback-field span {
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.feedback-field input,
+.feedback-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+  padding: 14px 16px;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-field input::placeholder,
+.feedback-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.feedback-field input:focus,
+.feedback-field textarea:focus {
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
+}
+
+.feedback-submit {
+  margin-top: 4px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .feedback-dialog {
+    width: min(95vw, 720px);
+    max-height: 90vh;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .feedback-header h3 {
+    font-size: 24px;
+  }
+}
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    color: #eef2ff;
+    background:
+  radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1), transparent 18%),
+  radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.09), transparent 20%),
+  radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.06), transparent 22%),
+  linear-gradient(180deg, #030814 0%, #050d19 40%, #030712 100%);
+    min-height: 100%;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 18px 80px;
+}
+
+  .topbar {
+  position: sticky;
+  top: 8px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 24px;
+  margin-bottom: 34px;
+  background: rgba(10, 16, 32, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.brand {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 16px 32px rgba(59, 130, 246, 0.28);
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav a {
+  position: relative;
+  padding: 12px 18px;
+  border-radius: 14px;
+  color: #dbe4f0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(124, 58, 237, 0.16));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.16);
+}
+
+.nav a:hover::before {
+  opacity: 1;
+}
+
+.lang-switch {
+  display: inline-flex;
+  gap: 8px;
+  padding: 7px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  border: 0;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.lang-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 10px 24px rgba(59, 130, 246, 0.22);
+}
+
+.lang-btn:hover {
+  color: #fff;
+}
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 26px;
+    align-items: stretch;
+    margin-bottom: 28px;
+  }
+
+  .hero-left,
+  .photo-card,
+  .card,
+  .timeline-card,
+  .project-card,
+  .contact-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(12, 19, 38, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    backdrop-filter: blur(14px);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .hero-left::before,
+  .photo-card::before,
+  .card::before,
+  .timeline-card::before,
+  .project-card::before,
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06),
+      transparent 30%,
+      transparent 70%,
+      rgba(59, 130, 246, 0.05)
+    );
+    pointer-events: none;
+  }
+
+  .hero-left {
+    padding: 38px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.14);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    color: #bfdbfe;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 62px;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    text-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+  }
+
+  .role {
+    margin: 18px 0 14px;
+    font-size: 22px;
+    line-height: 1.45;
+    color: #c4b5fd;
+    max-width: 760px;
+  }
+
+  .hero-text {
+    max-width: 720px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #dbe4f0;
+    padding: 20px 22px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 18px;
+    border-radius: 16px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #8b5cf6);
+    box-shadow: 0 14px 30px rgba(59, 130, 246, 0.24);
+  }
+
+  .btn-secondary {
+    color: #fff;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-ghost {
+    color: #dbeafe;
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+  }
+
+  .photo-card {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .photo-circle {
+    width: min(100%, 300px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+    padding: 8px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+    box-shadow:
+      0 0 0 8px rgba(255, 255, 255, 0.02),
+      0 20px 50px rgba(59, 130, 246, 0.22);
+  }
+
+  .photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 999px;
+    background: #0f172a;
+  }
+
+  .photo-placeholder {
+    position: absolute;
+    inset: 8px;
+    display: none;
+    place-items: center;
+    border-radius: 999px;
+    color: #94a3b8;
+    font-weight: 700;
+    background: rgba(15, 23, 42, 0.85);
+  }
+
+  .photo-circle img[src=""],
+  .photo-circle img:not([src]) {
+    display: none;
+  }
+
+  .photo-circle img[src=""] + .photo-placeholder,
+  .photo-circle img:not([src]) + .photo-placeholder {
+    display: grid;
+  }
+
+  .quick-box {
+    padding: 22px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.76), rgba(15, 23, 42, 0.76));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .quick-box h3 {
+    margin: 0 0 14px;
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .quick-box ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #dbe4f0;
+    line-height: 1.9;
+  }
+
+  .section {
+    margin-top: 24px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-line {
+    width: 42px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.25);
+  }
+
+  .section h2 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+  }
+
+  .text-card,
+  .card,
+  .contact-card {
+    padding: 28px;
+  }
+
+  .text-card p,
+  .timeline-card p,
+  .project-card p,
+  .contact-card p {
+    color: #d8e2f0;
+    line-height: 1.8;
+    margin-top: 0;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .timeline-card {
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .timeline-card:hover,
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(96, 165, 250, 0.22);
+  }
+
+  .timeline-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .timeline-top h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .timeline-top span {
+    color: #93c5fd;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .timeline-role {
+    color: #c4b5fd;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: #dbeafe;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+  }
+
+  .tag:hover {
+    transform: translateY(-2px);
+    border-color: rgba(96, 165, 250, 0.25);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .project-card {
+    padding: 24px;
+    min-height: 220px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .project-number {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #2563eb, #8b5cf6);
+    box-shadow: 0 12px 24px rgba(59, 130, 246, 0.22);
+  }
+
+  .project-card h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    color: #ffffff;
+  }
+
+  .contact-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(18, 26, 48, 0.9), rgba(10, 17, 32, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(96, 165, 250, 0.22);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.22);
+}
+
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #93c5fd;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-value {
+  display: block;
+  color: #eef2ff;
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+@media (max-width: 980px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  .footer {
+    padding: 30px 10px 10px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+  }
+
+  @media (max-width: 980px) {
+    .hero,
+    .timeline,
+    .project-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    h1 {
+      font-size: 46px;
+    }
+
+    .role {
+      font-size: 19px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      padding: 16px 12px 56px;
+    }
+
+    .topbar,
+    .hero-left,
+    .photo-card,
+    .card,
+    .timeline-card,
+    .project-card,
+    .contact-card {
+      border-radius: 22px;
+    }
+
+    .topbar {
+      padding: 12px;
+    }
+
+    .hero-left,
+    .photo-card,
+    .text-card,
+    .card,
+    .timeline-card,
+    .project-card,
+    .contact-card {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .role {
+      font-size: 17px;
+    }
+
+    .hero-text {
+      font-size: 15px;
+      padding: 16px;
+    }
+
+    .section h2 {
+      font-size: 25px;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+  }
+</style>
