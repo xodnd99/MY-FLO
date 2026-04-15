@@ -1510,57 +1510,70 @@ const content = {
   }
 
   @media (max-width: 640px) {
-    .page {
-      padding: 16px 12px 56px;
-    }
-
-    .topbar,
-    .hero-left,
-    .photo-card,
-    .card,
-    .timeline-card,
-    .project-card,
-    .contact-card {
-      border-radius: 22px;
-    }
-
-    .topbar {
-      padding: 12px;
-    }
-
-    .hero-left,
-    .photo-card,
-    .text-card,
-    .card,
-    .timeline-card,
-    .project-card,
-    .contact-card {
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 36px;
-    }
-
-    .role {
-      font-size: 17px;
-    }
-
-    .hero-text {
-      font-size: 15px;
-      padding: 16px;
-    }
-
-    .section h2 {
-      font-size: 25px;
-    }
-
-    .btn {
-      width: 100%;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-    }
+  .page {
+    padding: 16px 12px 56px;
   }
+
+  .topbar,
+  .hero-left,
+  .photo-card,
+  .card,
+  .timeline-card,
+  .project-card,
+  .contact-card {
+    border-radius: 22px;
+  }
+
+  .topbar {
+    padding: 12px;
+  }
+
+  .hero-left,
+  .photo-card,
+  .text-card,
+  .card,
+  .timeline-card,
+  .project-card,
+  .contact-card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .role {
+    font-size: 17px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+    padding: 16px;
+  }
+
+  .section h2 {
+    font-size: 25px;
+  }
+
+  .hero-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+  align-items: stretch;
+}
+
+.hero-actions .btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.hero-actions .btn:first-child {
+  grid-column: 1 / -1;
+}
+}
 </style>
