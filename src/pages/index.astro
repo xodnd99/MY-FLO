@@ -449,24 +449,45 @@ const content = {
         </p>
       </div>
     </section>
+    
     <section class="section" id="education">
   <div class="section-head">
     <span class="section-line"></span>
     <h2 data-i18n="education.title">Образование</h2>
   </div>
 
-  <div class="timeline">
-    <article class="timeline-card">
+  <div class="timeline education-grid">
+    <article class="timeline-card education-card">
       <div class="timeline-top">
-        <h3 data-i18n="education.university">Алматинский университет энергетики и связи, вычислительная техника и программное обеспечение</h3>
+        <h3 data-i18n="education.university">
+          Алматинский университет энергетики и связи, вычислительная техника и программное обеспечение
+        </h3>
         <span data-i18n="education.universityPeriod">Высшее образование</span>
+      </div>
+
+      <div class="education-logo-wrap">
+        <img
+  class="education-logo education-logo-university"
+  src={`${import.meta.env.BASE_URL}/images/auek-logo.png`}
+  alt="AUEC logo"
+/>
       </div>
     </article>
 
-    <article class="timeline-card">
+    <article class="timeline-card education-card">
       <div class="timeline-top">
-        <h3 data-i18n="education.college">Алматинский Экономический Колледж, информационные системы, техник-программист</h3>
+        <h3 data-i18n="education.college">
+          Алматинский Экономический Колледж, информационные системы, техник-программист
+        </h3>
         <span data-i18n="education.collegePeriod">Среднее специальное</span>
+      </div>
+
+      <div class="education-logo-wrap">
+        <img
+  class="education-logo education-logo-college"
+  src={`${import.meta.env.BASE_URL}/images/college-logo.png`}
+  alt="College logo"
+/>
       </div>
     </article>
   </div>
@@ -1575,5 +1596,205 @@ const content = {
 .hero-actions .btn:first-child {
   grid-column: 1 / -1;
 }
+}
+
+.education-card {
+  position: relative;
+  min-height: 185px;
+  padding-bottom: 22px;
+}
+
+.education-card .timeline-top {
+  display: block;
+  position: relative;
+}
+
+.education-card .timeline-top h3 {
+  max-width: calc(100% - 185px);
+  margin: 0;
+  line-height: 1.12;
+}
+
+.education-card .timeline-top span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 165px;
+  text-align: right;
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.education-logo-wrap {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.education-logo {
+  object-fit: contain;
+  opacity: 0.96;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
+}
+
+.education-logo {
+  object-fit: contain;
+  opacity: 0.96;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
+}
+
+.education-logo-university {
+  width: 138px;
+  height: 148px;
+}
+
+.education-logo-college {
+  width: 104px;
+  height: 104px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 10px 10px 40px;
+  }
+
+  .topbar,
+  .hero-left,
+  .photo-card,
+  .card,
+  .timeline-card,
+  .project-card,
+  .contact-card {
+    border-radius: 20px;
+  }
+
+  .topbar {
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+
+  .brand {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+    border-radius: 16px;
+  }
+
+  .hero,
+  .timeline,
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .hero-left,
+  .photo-card,
+  .text-card,
+  .card,
+  .timeline-card,
+  .project-card,
+  .contact-card {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 34px;
+    line-height: 1.02;
+  }
+
+  .role {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 14px 0 12px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+    padding: 14px 15px;
+    line-height: 1.7;
+  }
+
+  .section {
+    margin-top: 18px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .photo-circle {
+    width: min(100%, 220px);
+    padding: 6px;
+  }
+
+  .quick-box {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .quick-box h3 {
+    font-size: 18px;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 10px;
+    font-size: 14px;
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+
+  .hero-actions .btn:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .education-card {
+    min-height: 175px;
+    padding-bottom: 16px;
+  }
+
+  .education-card .timeline-top h3 {
+    max-width: 100%;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .education-card .timeline-top span {
+    position: static;
+    display: block;
+    max-width: 100%;
+    text-align: left;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+
+  .education-logo-wrap {
+    right: 14px;
+    bottom: 10px;
+  }
+
+  .education-logo-university {
+    width: 105px;
+    height: 110px;
+  }
+
+  .education-logo-college {
+    width: 78px;
+    height: 78px;
+  }
 }
 </style>
