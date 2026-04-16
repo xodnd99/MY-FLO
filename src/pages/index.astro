@@ -376,6 +376,20 @@ const content = {
 
 <Layout title="Yesbol Zholdasbay | Portfolio">
   <main class="page" data-lang="ru">
+
+    <div class="sky-bg" aria-hidden="true">
+  <div class="stars"></div>
+  <div class="meteor-field" aria-hidden="true">
+    <span class="meteor m1"></span>
+    <span class="meteor m2"></span>
+    <span class="meteor m3"></span>
+    <span class="meteor m4"></span>
+    <span class="meteor m5"></span>
+    <span class="meteor m6"></span>
+    <span class="meteor m7"></span>
+  </div>
+</div>
+    
     <header class="topbar">
       <a class="brand" href="#top">YZ</a>
 
@@ -786,6 +800,8 @@ const content = {
       closeModal();
     }
   });
+
+
 </script>
 
 <style>
@@ -983,11 +999,6 @@ const content = {
     text-decoration: none;
   }
 
-  .page {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 10px 18px 80px;
-}
 
   .topbar {
   position: sticky;
@@ -1658,6 +1669,18 @@ const content = {
   height: 104px;
 }
 
+.section,
+.hero {
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 640px) {
+  .section,
+  .hero {
+    scroll-margin-top: 90px;
+  }
+}
+
 @media (max-width: 640px) {
   .page {
     padding: 10px 10px 40px;
@@ -1796,5 +1819,86 @@ const content = {
     width: 78px;
     height: 78px;
   }
+}
+
+.sky-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 18px 80px;
+}
+
+.meteor-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+:global(.meteor) {
+  position: absolute;
+  width: 180px;
+  height: 1.5px;
+  border-radius: 999px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0),
+    rgba(173,216,255,0.12) 45%,
+    rgba(255,255,255,0.85) 100%
+  );
+  box-shadow: 0 0 8px rgba(255,255,255,0.18);
+  transform: rotate(35deg);
+  animation: meteorFall 1.15s linear 2 both;
+}
+
+:global(.meteor)::after {
+  content: none;
+}
+
+:global(.m1) { top: -8%; left: 4%;  animation-delay: 0s; }
+:global(.m2) { top: -14%; left: 14%; animation-delay: 0.8s; }
+:global(.m3) { top: -10%; left: 28%; animation-delay: 1.6s; }
+:global(.m4) { top: -16%; left: 42%; animation-delay: 2.4s; }
+:global(.m5) { top: -12%; left: 58%; animation-delay: 3.2s; }
+:global(.m6) { top: -18%; left: 72%; animation-delay: 4s; }
+:global(.m7) { top: -9%;  left: 84%; animation-delay: 4.8s; }
+
+@keyframes meteorFall {
+  0% {
+    opacity: 0;
+    transform: rotate(35deg) translate3d(0, 0, 0);
+  }
+  8% {
+    opacity: 0.9;
+  }
+  55% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(35deg) translate3d(420px, 420px, 0);
+  }
+}
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.45) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 22% 72%, rgba(255,255,255,0.28) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,0.22) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 48% 14%, rgba(255,255,255,0.36) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 62% 62%, rgba(255,255,255,0.2) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 76% 26%, rgba(255,255,255,0.3) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 88% 54%, rgba(255,255,255,0.24) 0 1px, transparent 1.6px);
+  opacity: 0.45;
 }
 </style>
